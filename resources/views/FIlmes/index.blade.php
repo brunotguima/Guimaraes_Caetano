@@ -1,11 +1,15 @@
-@extends('layouts.app') @section('conteudo')
+@extends('layouts.app') 
+@section('conteudo')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Lista de Filmes Cadastrados &nbsp;
-            <a href="/filmes/inserir">Inserir filmes</a></div>
-
+                            @if (Auth::guest())
+&nbsp;
+            @else
+            <a href="/filmes/create">Inserir filmes</a></div>
+            @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>

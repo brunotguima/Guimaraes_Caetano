@@ -14,6 +14,9 @@
 Route::get('/', function () {
 return view('home');
 });
+Route::get('/home', function () {
+return view('/home');
+});
 Auth::routes();
 Route::resource('filmes', 'FilmeController');
 Route::resource('generos', 'GeneroController');

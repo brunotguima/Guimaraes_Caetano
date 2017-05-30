@@ -21,10 +21,10 @@ class FilmeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function inserir()
+    public function create()
     {
         $generos = Genero::all();
-        return view('filmes.inserir', compact('generos'));
+        return view('filmes.create', compact('generos'));
         
     }
     /**

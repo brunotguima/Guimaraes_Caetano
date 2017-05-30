@@ -14,7 +14,8 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        //
+        $generos = Genero::all();
+        return view('generos.index', compact('generos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GeneroController extends Controller
      */
     public function create()
     {
-        //
+        return view('generos.create');
     }
 
     /**
@@ -35,7 +36,10 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $genero = new Genero();
+        $genero->nome = $request->nome;
+        $genero->save();
+        return redirect('/generos');
     }
 
     /**

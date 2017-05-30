@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"><a href="filmes">Filmes</a> &nbsp;
-                <a href="generos/index">Generos</a></div>
+                <a href="generos">Generos</a></div>
 
                 <div class="panel-body">
  <div class="container">

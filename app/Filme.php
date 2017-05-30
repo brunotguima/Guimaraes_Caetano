@@ -9,6 +9,5 @@ class Filme extends Model
     public function genero()
     {
         return $this->belongsTo('App\Genero');
-        return $this->belongsTo('App\Listarep');
     }
 }
