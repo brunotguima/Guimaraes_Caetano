@@ -21,10 +21,10 @@ class FilmeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function inserir()
     {
         $generos = Genero::all();
-        return view('filmes.create', compact('generos'));
+        return view('filmes.inserir', compact('generos'));
         
     }
     /**
@@ -40,7 +40,6 @@ class FilmeController extends Controller
         $filme->titulo = $request->titulo;
         $filme->ano = $request->ano;
         $filme->genero_id = $request->genero;
-        $filme->ator_id = $request->ator;
         $filme->save();
         return redirect('filmes');
     }

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
-@section('content')
+@section('conteudo')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Filmes</div>
+                <div class="panel-heading"><a href="filmes">Filmes</a> &nbsp;
+                <a href="generos/index">Generos</a></div>
 
                 <div class="panel-body">
  <div class="container">
