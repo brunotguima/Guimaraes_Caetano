@@ -16,10 +16,7 @@
                     </h1>
 
                     <ul>
-                        @foreach($filmes as $filme)
-                            <li>{{$filme->id}} - {{$filme->titulo}} , {{$filme->ano}}</li>
-                        @endforeach
-                    </ul>
+                                            </ul>
                 </div>
             </div>
 </div>

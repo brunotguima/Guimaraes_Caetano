@@ -15,6 +15,7 @@ class CreateListarepsTable extends Migration
     {
         Schema::create('listareps', function (Blueprint $table) {
             $table->increments('id');
+            $table->strings('nome');
             $table->timestamps();
         });
     }

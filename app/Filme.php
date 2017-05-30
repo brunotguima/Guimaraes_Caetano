@@ -11,3 +11,4 @@ class Filme extends Model
         return $this->belongsTo('App\Genero');
         return $this->belongsTo('App\Listarep');
     }
+}

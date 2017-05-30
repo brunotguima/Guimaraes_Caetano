@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('filmes', 'FilmeController');
+Route::resource('generos', 'GeneroController');

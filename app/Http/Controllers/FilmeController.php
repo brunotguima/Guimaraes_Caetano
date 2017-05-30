@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use App\Filme;
 use App\Genero;
-use App\Ator;
 use Illuminate\Http\Request;
 class FilmeController extends Controller
 {
@@ -25,8 +24,7 @@ class FilmeController extends Controller
     public function create()
     {
         $generos = Genero::all();
-        $atores = Ator::all();
-        return view('filmes.create', compact('generos', 'atores'));
+        return view('filmes.create', compact('generos'));
         
     }
     /**
