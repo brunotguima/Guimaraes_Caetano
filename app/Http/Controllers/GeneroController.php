@@ -84,6 +84,7 @@ class GeneroController extends Controller
      */
     public function destroy(Genero $genero)
     {
-        //
+        $genero->delete();
+        return redirect('generos');
     }
 }

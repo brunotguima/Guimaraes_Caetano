@@ -13,7 +13,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Titulo</th>
                             <th>Ano</th>
                             <th>Genero</th>
@@ -25,11 +24,13 @@
                     <tbody>
                         @foreach($filmes as $filme)
                         <tr>
-                            <td>{{$filme->id}}</td>
                             <td>{{$filme->titulo}}</td>
                             <td>{{$filme->ano}}</td>
                             <td>{{$filme->genero->nome}}</td>
                             <td>
+                                                        @if (Auth::guest())
+&nbsp;
+            @else
                                 <a class="btn btn-primary" href="/filmes/{{$filme->id}}/edit">
                                             Editar
                                         </a>
@@ -41,7 +42,7 @@
                                     <input type="hidden" name="_method" value="delete">
 
                                     <button class="btn btn-danger">Apagar</button>
-
+@endif
                                 </form>
 
                             </td>

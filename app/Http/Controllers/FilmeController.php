@@ -61,7 +61,7 @@ class FilmeController extends Controller
      */
     public function edit(Filme $filme)
     {
-        //
+                return view('filmes.edit', compact('filme'));
     }
     /**
      * Update the specified resource in storage.
@@ -72,7 +72,11 @@ class FilmeController extends Controller
      */
     public function update(Request $request, Filme $filme)
     {
-        //
+        $filme->titulo = $request->titulo;
+        $filme->ano = $request->ano;
+        $filme->genero_id = $request->genero;
+        $filme->save();
+        return redirect('/filmes');
     }
     /**
      * Remove the specified resource from storage.
@@ -82,6 +86,7 @@ class FilmeController extends Controller
      */
     public function destroy(Filme $filme)
     {
-        //
+        $filme->delete();
+        return redirect('filmes');
     }
 }

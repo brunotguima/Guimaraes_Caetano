@@ -15,15 +15,18 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @forelse ($generos as $genero)
                                 <tr>
-                                    <td>{{$genero->id}}</td>
                                     <td>{{$genero->nome}}</td>
+                                    <td><form style="display: inline;" action="{{route('generos.destroy', $genero->id)}}" method="post">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-danger">Apagar</button></td>
                                 </tr>
                              @empty
                                 <tr><td>Sem resultados</td></tr>
