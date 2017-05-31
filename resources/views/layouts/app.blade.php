@@ -26,13 +26,15 @@
     <div id="app">
 
 <div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-heading">
         <a class="pure-menu-heading" href="{{ url('/') }}">EmiaFeels Cinema</a>
+        @if (Auth::guest())
         <ul class="pure-menu-list">
-            @if (Auth::guest())
             <li class="pure-menu-item"><a href="{{ route('login') }}">Login</a></li>
                             <li class="pure-menu-item"><a href="{{ route('register') }}">Registrar</a></li>
+                            </ul>
                         @else
+                        <ul class="pure-menu-list">
                             <li class="pure-menu-item">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -44,6 +46,7 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -51,10 +54,32 @@
                                 </ul>
                             </li>
                         @endif
-                        </li>
+            </li>
         </ul>
     </div>
 </div>
+</div>
+
+
+
+
+                    <!-- Branding Image -->
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
         @yield('conteudo')
     </div>
 
