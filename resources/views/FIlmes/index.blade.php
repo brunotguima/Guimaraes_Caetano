@@ -20,12 +20,10 @@
 
                         </tr>
                     </thead>
-
                     <tbody>
                         @foreach($filmes as $filme)
                         <tr>
                             <td>{{$filme->titulo}}</td>
-                            <td>{{$filme->ano}}</td>
                             <td>{{$filme->genero->nome}}</td>
                             <td>
                                                         @if (Auth::guest())
