@@ -20,3 +20,4 @@ return view('/home');
 Auth::routes();
 Route::resource('filmes', 'FilmeController');
 Route::resource('generos', 'GeneroController');
+Route::resource('listareps', 'ListarepController');

@@ -17,14 +17,13 @@
                             <th>Ano</th>
                             <th>Genero</th>
                             <th></th>
-
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($filmes as $filme)
                         <tr>
                             <td>{{$filme->titulo}}</td>
-                            <td>{{$filme->genero->nome}}</td>
+                            <td>{{$filme->genero}}</td>
                             <td>
                                                         @if (Auth::guest())
 &nbsp;

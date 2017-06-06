@@ -16,6 +16,8 @@ class CreateListarepsTable extends Migration
         Schema::create('listareps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->string('descricao');
+            $table->integer('filme_id');
             $table->timestamps();
         });
     }
