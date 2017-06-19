@@ -17,7 +17,7 @@ class CreateListarepsTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('descricao');
-            $table->integer('filme_id');
+            $table->string('creator');
             $table->timestamps();
         });
     }

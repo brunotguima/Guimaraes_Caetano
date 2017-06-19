@@ -5,11 +5,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Lista de Filmes Cadastrados &nbsp;
-                            @if (Auth::guest())
-&nbsp;
-            @else
-            <a href="/filmes/create">Inserir filmes</a></div>
-            @endif
+                    @if (Auth::guest())
+                    &nbsp;
+                    @else
+                    <a href="/filmes/create">Inserir filmes</a></div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -23,14 +23,15 @@
                         @foreach($filmes as $filme)
                         <tr>
                             <td>{{$filme->titulo}}</td>
-                            <td>{{$filme->genero}}</td>
+                            <td></td>
+                            <td>{{$filme->genero->nome}}</td>
                             <td>
-                                                        @if (Auth::guest())
-&nbsp;
-            @else
+                                @if (Auth::guest())
+                                &nbsp;
+                                @else
                                 <a class="btn btn-primary" href="/filmes/{{$filme->id}}/edit">
-                                            Editar
-                                        </a>
+                                    Editar
+                                </a>
 
                                 <form style="display: inline;" action="{{route('filmes.destroy', $filme->id)}}" method="post">
 
@@ -39,7 +40,7 @@
                                     <input type="hidden" name="_method" value="delete">
 
                                     <button class="btn btn-danger">Apagar</button>
-@endif
+                                    @endif
                                 </form>
 
                             </td>

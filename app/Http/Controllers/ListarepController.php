@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Filme;
 use App\Listarep;
 use Illuminate\Http\Request;
 
-class ListarepController extends Controller
-{
+class ListarepController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    public function index() {
+        $listareps = Listarep::all(); //with(['filme'])->get();
+        return view('listareps.index', compact('listareps'));
     }
 
     /**
@@ -22,9 +27,9 @@ class ListarepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $filmes = Filme::all();
+        return view('listareps.create', compact('filmes'));
     }
 
     /**
@@ -33,9 +38,13 @@ class ListarepController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $listareps = new Listarep();
+        $listareps->nome = $request->nome;
+        $listareps->descricao = $request->descricao;
+        $listareps->creator = $request->creator;
+        $listareps->save();
+        return redirect('listareps');
     }
 
     /**
@@ -44,8 +53,7 @@ class ListarepController extends Controller
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function show(Listarep $listarep)
-    {
+    public function show(Listarep $listareps) {
         //
     }
 
@@ -55,9 +63,8 @@ class ListarepController extends Controller
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function edit(Listarep $listarep)
-    {
-        //
+    public function edit(Listarep $listareps) {
+        return view('listareps.edit', compact('listareps'));
     }
 
     /**
@@ -67,9 +74,12 @@ class ListarepController extends Controller
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Listarep $listarep)
-    {
-        //
+    public function update(Request $request, Listarep $listareps) {
+        $listareps->nome = $request->nome;
+        $listareps->descricao = $request->descricao;
+        $listareps->creator = $request->creator;
+        $listareps->save();
+        return redirect('listareps');
     }
 
     /**
@@ -78,8 +88,9 @@ class ListarepController extends Controller
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Listarep $listarep)
-    {
-        //
+    public function destroy(Listarep $listarep) {
+        $listarep->delete();
+        return redirect('listareps');
     }
+
 }

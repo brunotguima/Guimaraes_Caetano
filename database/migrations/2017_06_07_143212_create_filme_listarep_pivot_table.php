@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class App\ extends Migration
+class CreateFilmeListarepPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,11 @@ class App\ extends Migration
     {
         Schema::create('filme_listarep', function (Blueprint $table) {
             $table->integer('filme_id')->unsigned()->index();
-            $table->foreign('filme_id')->references('id')->on('filme')->onDelete('cascade');
+            $table->foreign('filme_id')->references('id')->on('filmes')->onDelete('cascade');
             $table->integer('listarep_id')->unsigned()->index();
-            $table->foreign('listarep_id')->references('id')->on('listarep')->onDelete('cascade');
+            $table->foreign('listarep_id')->references('id')->on('listareps')->onDelete('cascade');
             $table->primary(['filme_id', 'listarep_id']);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class App\ extends Migration
      */
     public function down()
     {
-        Schema::drop('filme_listarep');
+        Schema::dropIfExists('filme_listarep');
     }
 }
