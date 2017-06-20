@@ -18,7 +18,6 @@ class CreateFilmeListarepPivotTable extends Migration
             $table->integer('listarep_id')->unsigned()->index();
             $table->foreign('listarep_id')->references('id')->on('listareps')->onDelete('cascade');
             $table->primary(['filme_id', 'listarep_id']);
-            $table->timestamps();
         });
     }
 

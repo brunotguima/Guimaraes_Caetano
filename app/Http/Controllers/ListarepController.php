@@ -18,8 +18,9 @@ class ListarepController extends Controller {
     }
 
     public function index() {
-        $listareps = Listarep::all(); //with(['filme'])->get();
+       $listareps = Listarep::all();
         return view('listareps.index', compact('listareps'));
+    
     }
 
     /**
@@ -44,7 +45,8 @@ class ListarepController extends Controller {
         $listareps->descricao = $request->descricao;
         $listareps->creator = $request->creator;
         $listareps->save();
-        return redirect('listareps');
+        $listareps->filme()->sync($request->filmes, false);
+        return redirect()->route('listareps.show', $listareps->id);
     }
 
     /**
@@ -53,8 +55,9 @@ class ListarepController extends Controller {
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function show(Listarep $listareps) {
-        //
+    public function show($listarep) {
+        $listarep = Listarep::find($listarep);
+        return view('listareps.show')->withListarep($listarep);
     }
 
     /**
@@ -63,8 +66,15 @@ class ListarepController extends Controller {
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function edit(Listarep $listareps) {
-        return view('listareps.edit', compact('listareps'));
+    public function edit(Listarep $listarep) {
+        $listareps = Listarep::find($listarep);
+        $listarepss = Listarep::all();
+        $filmes = Filme::all();
+        $filmes2 = array();
+        foreach ($filmes as $filme){
+            $filmes2[$filme->id] = $filme->titulo;
+        }
+        return view('listareps.edit', compact('listareps','filmes2','listarepss'));
     }
 
     /**
@@ -74,12 +84,18 @@ class ListarepController extends Controller {
      * @param  \App\Listarep  $listarep
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Listarep $listareps) {
-        $listareps->nome = $request->nome;
-        $listareps->descricao = $request->descricao;
-        $listareps->creator = $request->creator;
+    public function update(Request $request, Listarep $listarep) {
+$listareps = Listarep::find($listarep);
+        $listareps->nome = $request->input('nome');
+        $listareps->descricao = $request->input('descricao');
+        $listareps->creator = $request->input('creator');
         $listareps->save();
-        return redirect('listareps');
+        if (isset($request->filme)){
+$listareps->filme()->sync($request->filmes);
+        }else{
+            $listareps->filme()->sync(array());
+        }
+        return redirect()->route('listareps.show', $listareps->id);
     }
 
     /**

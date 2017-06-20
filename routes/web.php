@@ -11,7 +11,7 @@
   |
  */
 Route::get('/', function () {
-    return view('listareps/index', 'ListarepController@index');
+    return view('index');
 });
 Auth::routes();
 Route::resource('filmes', 'FilmeController');

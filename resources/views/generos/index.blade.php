@@ -2,34 +2,39 @@
 @section('conteudo')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="page-header">Lista de Gêneros</h1>
+        <div class="col l12">
+            <h1 class="page-header center-align">Listas de Generos</h1>
             @if (Auth::guest())
             &nbsp;
             @else
-            <a href="/generos/create">Cadastrar</a>
+            <div class="row">
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn-large" href="/generos/create">Cadastrar Novo Genero</a>
+                </div>
+            </div>
             @endif
-            <div class="panel panel-primary">
-                <div class="panel-heading">Tabela de dados</div>
+            <div class="collection">
+                <a href="" class="collection-item active center-align"></a>
                 <div class="panel-body">
-                    <table class="table table-striped">
+                    <table class="table responsive-table">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>&nbsp;</th>
+                                <th class="center-align">Nome</th>
+                                <th class="center-align">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($generos as $genero)
                             <tr>
-                                <td>{{$genero->nome}}</td>
-                                @if (Auth::guest())
-                                &nbsp;
-                                @else
-                                <td><form style="display: inline;" action="{{route('generos.destroy', $genero->id)}}" method="post">
+                                <td class="center-align">{{$genero->nome}}</td>
+                                <td class="center-align">
+                                    @if (Auth::guest())
+                                    &nbsp;
+                                    @else
+                                    <form style="display: inline;" action="{{route('generos.destroy', $genero->id)}}" method="post">
                                         {{csrf_field()}}
                                         <input type="hidden" name="_method" value="delete">
-                                        <button class="btn btn-danger">Apagar</button></td>
+                                        <button class="btn waves-effect red">Apagar</button></td>
                             </tr>
                             @endif
                             @empty

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Genero;
+use App\Filme;
+use App\Listarep;
 use Illuminate\Http\Request;
 
 class GeneroController extends Controller {

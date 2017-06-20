@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Filme;
+use App\Listarep;
 use App\Genero;
 use Illuminate\Http\Request;
 

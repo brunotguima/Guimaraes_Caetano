@@ -2,44 +2,49 @@
 @section('conteudo')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="page-header">Listas de Reprodução</h1>
+        <div class="col l12">
+            <h1 class="page-header center-align">Listas de Reprodução</h1>
             @if (Auth::guest())
             &nbsp;
             @else
-            <a href="/listareps/create">Cadastrar</a>
+            <div class="row">
+            <div class="center-align">
+                <a class="waves-effect waves-light btn-large" href="/listareps/create">Cadastrar Nova Lista</a>
+                </div>
+            </div>
             @endif
-            <div class="panel panel-primary">
-                <div class="panel-heading">Listas cadastradas</div>
+            <div class="collection">
+                <a href="" class="collection-item active center-align"></a>
                 <div class="panel-body">
-                    <table class="table table-striped">
+                    <table class="table responsive-table">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Filmes</th>
-                                <th>Criado por</th>
-                                <th>&nbsp;</th>
+                                <th class="center-align">Nome</th>
+                                <th class="center-align">Descrição</th>
+                                <th class="center-align">Criado por</th>
+                                <th class="center-align">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($listareps as $listarep)
                             <tr>
-                                <td>{{$listarep->nome}}</td>
-                                <td>{{$listarep->descricao}}</td>
-                                <td>{{$listarep->filmes}}</td>
-                                <td>{{$listarep->creator}}
+                                <td class="center-align">{{$listarep->nome}}</td>
+                                <td class="center-align">{{$listarep->descricao}}</td>
+                                <td class="center-align">{{$listarep->creator}}</td>
+                                <td class="center-align">
+                                        <a class="waves-effect  blue darken-1 btn" href="{{route('listareps.show', $listarep->id)}}">
+                                        Visualizar
+                                    </a>
                                     @if (Auth::guest())
                                     &nbsp;
                                     @else
-                                    <a class="btn btn-primary" href="/listareps/{{$listarep->id}}/edit">
+                                    <a class="waves-effect waves-light btn" href="/listareps/{{$listarep->id}}/edit">
                                         Editar
                                     </a>
-
                                     <form style="display: inline;" action="{{route('listareps.destroy', $listarep->id)}}" method="post">
                                         {{csrf_field()}}
                                         <input type="hidden" name="_method" value="delete">
-                                        <button class="btn btn-danger">Apagar</button></td>
+                                        <button class="btn waves-effect red">Apagar</button></td>
                             </tr>
                             @endif
                             @empty
