@@ -11,8 +11,7 @@ class Filme extends Model {
     }
 
     public function listareps() {
-        return $this->belongsToMany('App\Listarep')
-                        ->withTimestamps();
+        return $this->belongsToMany('App\Listarep','filme_listarep', 'filme_id', 'listarep_id');
     }
 
 }

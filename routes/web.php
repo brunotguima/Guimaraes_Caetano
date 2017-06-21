@@ -11,9 +11,10 @@
   |
  */
 Route::get('/', function () {
-    return view('listareps/index', 'ListarepController@index');
+    return view('index');
 });
 Auth::routes();
 Route::resource('filmes', 'FilmeController');
 Route::resource('listareps', 'ListarepController');
 Route::resource('generos', 'GeneroController');
+Route::post('notas/{listareps_id}', ['uses' => 'NotasController@store','as' => 'notas.store']);

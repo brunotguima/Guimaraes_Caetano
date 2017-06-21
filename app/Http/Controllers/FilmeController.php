@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Filme;
+use App\Listarep;
 use App\Genero;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,10 @@ class FilmeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
+$this->validate($request, array(
+    'titulo' =>'required|max:255',
+    'ano' => 'required'
+));
         $filme = new Filme();
         $filme->titulo = $request->titulo;
         $filme->ano = $request->ano;
@@ -77,6 +81,10 @@ class FilmeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Filme $filme) {
+        $this->validate($request, array(
+    'titulo' =>'required|max:255',
+    'ano' => 'required'
+));
         $filme->titulo = $request->titulo;
         $filme->ano = $request->ano;
         $filme->genero_id = $request->genero;

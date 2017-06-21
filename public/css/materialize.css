@@ -2184,7 +2184,9 @@ section,
 summary {
   display: block;
 }
-
+main{
+  min-height: calc(100vh - 70px);  
+}
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
@@ -2863,12 +2865,13 @@ ul.staggered-list li {
 
 .page-footer {
   padding-top: 20px;
-  background-color: #ee6e73;
+  background-color:#26507c;
+bottom:0;
 }
 
 .page-footer .footer-copyright {
   overflow: hidden;
-  min-height: 50px;
+  min-height: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -2878,6 +2881,7 @@ ul.staggered-list li {
   padding: 10px 0px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
+  bottom:0;
 }
 
 table, th, td {

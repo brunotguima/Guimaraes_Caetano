@@ -2,25 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Genero;
-use App\Filme;
-use App\Listarep;
 use Illuminate\Http\Request;
 
-class GeneroController extends Controller {
-
+class NotasController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
-    public function index() {
-        $generos = Genero::all();
-        return view('generos.index', compact('generos'));
+    public function index()
+    {
+        //
     }
 
     /**
@@ -28,8 +21,9 @@ class GeneroController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-        return view('generos.create');
+    public function create()
+    {
+        //
     }
 
     /**
@@ -38,33 +32,30 @@ class GeneroController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $this->validate($request, array(
-    'nome' =>'required|max:255'
-));
-        $genero = new Genero();
-        $genero->nome = $request->nome;
-        $genero->save();
-        return redirect('/generos');
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Genero  $genero
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Genero $genero) {
+    public function show($id)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Genero  $genero
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Genero $genero) {
+    public function edit($id)
+    {
         //
     }
 
@@ -72,22 +63,22 @@ class GeneroController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Genero  $genero
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genero $genero) {
+    public function update(Request $request, $id)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Genero  $genero
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genero $genero) {
-        $genero->delete();
-        return redirect('generos');
+    public function destroy($id)
+    {
+        //
     }
-
 }

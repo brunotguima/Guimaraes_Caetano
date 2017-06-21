@@ -14,11 +14,10 @@ class CreateFilmeListarepPivotTable extends Migration
     {
         Schema::create('filme_listarep', function (Blueprint $table) {
             $table->integer('filme_id')->unsigned()->index();
-            $table->foreign('filme_id')->references('id')->on('filmes')->onDelete('cascade');
+            $table->foreign('filme_id')->references('id')->on('filmes');
             $table->integer('listarep_id')->unsigned()->index();
-            $table->foreign('listarep_id')->references('id')->on('listareps')->onDelete('cascade');
+            $table->foreign('listarep_id')->references('id')->on('listareps');
             $table->primary(['filme_id', 'listarep_id']);
-            $table->timestamps();
         });
     }
 
