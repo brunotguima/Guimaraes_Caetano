@@ -12,9 +12,12 @@ class Listarep extends Model {
 
     public function user() {
         return $this->belongsToMany('App\User');
+<<<<<<< HEAD
     }
     public function notas() {
         return $this->hasMany('App\Comment');
+=======
+>>>>>>> origin/master
     }
 
 }

@@ -62,7 +62,11 @@ class ListarepController extends Controller {
      */
     public function show($listarep) {
         $listarep = Listarep::find($listarep);
+<<<<<<< HEAD
         return view('listareps.show', compact('listarep'));
+=======
+        return view('listareps.show')->withListarep($listarep);
+>>>>>>> origin/master
     }
 
     /**
@@ -73,12 +77,20 @@ class ListarepController extends Controller {
      */
     public function edit(Listarep $listarep) {
         $listareps = Listarep::find($listarep);
+<<<<<<< HEAD
+=======
+        $listarepss = Listarep::all();
+>>>>>>> origin/master
         $filmes = Filme::all();
         $filmes2 = array();
         foreach ($filmes as $filme){
             $filmes2[$filme->id] = $filme->titulo;
         }
+<<<<<<< HEAD
         return view('listareps.edit', compact('listareps','filmes2','listarep'));
+=======
+        return view('listareps.edit', compact('listareps','filmes2','listarepss'));
+>>>>>>> origin/master
     }
 
     /**
@@ -89,11 +101,14 @@ class ListarepController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Listarep $listarep) {
+<<<<<<< HEAD
                 $this->validate($request, array(
     'nome' =>'required|max:255',
     'creator' => 'required',
     'filmes' => 'required'
 ));
+=======
+>>>>>>> origin/master
 $listareps = Listarep::find($listarep);
         $listareps->nome = $request->input('nome');
         $listareps->descricao = $request->input('descricao');

@@ -12,13 +12,21 @@
                 <div class="row">
                     <div class="form-group">
                         <label for="nome">Nome</label>
+<<<<<<< HEAD
                         <input class="form-control" type="text" name="nome" id="nome" value="{{'$listareps->nome'}}">
+=======
+                        <input class="form-control" type="text" name="nome" id="nome" value="{{('$listareps->nome')}}">
+>>>>>>> origin/master
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label for="descricao">Descricao</label>
+<<<<<<< HEAD
                         <input class="form-control" type="text" name="descricao" id="descricao" value="{{'$listareps->descricao'}}">
+=======
+                        <input class="form-control" type="text" name="descricao" id="descricao" value="{{('$listareps->descricao')}}">
+>>>>>>> origin/master
                     </div>
                 </div>
                 <div class="row">
@@ -41,7 +49,12 @@
 @endsection
 <script type="text/javascript">
     $('.select2-multi').select2();
+<<<<<<< HEAD
             $('.select2-multi').select2().val({!! json_encode($listarep->filme()->allRelatedIds())!!}).trigger('change');
+=======
+        $('.select2-multi').select2().val({!! json_encode($listareps->filme()->getRelatedIds())
+    !!}).trigger('change');
+>>>>>>> origin/master
 </script>
 <script type="text/javascript">
     $(document).ready(function () {

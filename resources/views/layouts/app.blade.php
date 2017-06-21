@@ -95,7 +95,11 @@
 
                                     <!-- Scripts -->
                                     <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
+<<<<<<< HEAD
                                     <script src="{{ asset('js/jquery.min.js')}}"></script>
+=======
+                                    <script src="{{ asset('js/jquery.min.js') }}"></script>
+>>>>>>> origin/master
                                     <script src="{{ asset('js/select2.js')}}"></script>
                                     <script src="{{ asset('js/parsley.js')}}"></script>
                                     <script src="{{ asset('js/materialize.js')}"></script>
